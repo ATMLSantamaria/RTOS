@@ -5,7 +5,7 @@
 #include <syslog.h>
 #include <sys/time.h>
 #include <sys/utsname.h>
-#define NUM_THREADS 1
+#define NUM_THREADS 12
 
 typedef struct
 {
