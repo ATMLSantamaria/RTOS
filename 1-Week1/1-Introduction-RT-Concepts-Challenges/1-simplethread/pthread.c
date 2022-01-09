@@ -59,7 +59,7 @@ int main (int argc, char *argv[])
     struct timeval tv;
     struct utsname unameData;
     uname(&unameData);
-    //He usado uname -a en el terminal finalmente
+    
     //printf(/*"[COURSE:1][ASSIGNMENT:1]:*/"%s %s %s %s %s\n",unameData.sysname,unameData.nodename,unameData.version,unameData.machine,unameData.release);
     //syslog(LOG_CRIT,"[COURSE:1][ASSIGNMENT:1]:Hello World from Main!");
     //syslog(LOG_CRIT, "My log message test @ tv.tv_sec %ld, tv.tv_usec %ld\n", tv.tv_sec, tv.tv_usec);
