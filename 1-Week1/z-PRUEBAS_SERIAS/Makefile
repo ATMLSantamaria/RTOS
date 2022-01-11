@@ -8,7 +8,13 @@ primer: 1-Thread.c
 segundo: 2-fifo-thread.c
 	gcc $(CFLAGS) -o fifoThread  2-fifo-thread.c -lrt -pthread
 
+resumen: 3-resumen-affinity-priority.c
+	gcc $(CFLAGS) -o resumen 3-resumen-affinity-priority.c -lrt -pthread
+
+
+
 clean:
 	rm -f dosProcesos
 	rm -f primerThread
 	rm -f fifoThread
+	rm -f resumen
