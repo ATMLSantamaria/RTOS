@@ -29,6 +29,8 @@
 #include <sched.h>
 #include <time.h>
 #include <semaphore.h>
+#include <sys/sysinfo.h>
+
 
 #define USEC_PER_MSEC (1000)
 #define NUM_CPU_CORES (1)

@@ -116,7 +116,7 @@ void *starterThread(void *threadp)
    int i, rc;
 
    printf("starter thread running on CPU=%d\n", sched_getcpu());
-
+print_scheduler();
    for(i=0; i < NUM_THREADS; i++)
    {
        threadParams[i].threadIdx=i;

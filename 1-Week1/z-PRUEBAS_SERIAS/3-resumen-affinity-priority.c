@@ -104,13 +104,6 @@ int main(){
 
 
 
-
-
-
-
-
-
-
 void *incThread(void *threadp)
 {
     int i;

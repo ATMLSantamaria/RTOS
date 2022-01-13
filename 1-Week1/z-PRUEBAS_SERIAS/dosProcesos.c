@@ -33,15 +33,20 @@ int main(){
 
 
     // Semaphores 
-    sem_t *syncSemChild,*syncSemParent;
+    sem_t syncSemChild,syncSemParent;
     // open Semaphores
-    syncSemChild = sem_open(syncSemChildName,O_CREAT,0700,0);
+    printf("HELLO\n");
+    sem_init(&syncSemChild,0,0);
+    sem_init(&syncSemParent,0,0);
+    printf("HELLO\n");
+
+    syncSemChild = sem_open(&syncSemChildName,O_CREAT,0700,0);
                             //O_CREAT, //create new semaphore, alternative O_EXCL
                             //0700, //mode (input) Permission flags. 
                            //0);   //value
     printf("twprocs syncSemChild done\n");
     
-    syncSemParent = sem_open(syncSemParentName,O_CREAT,0700,0);
+    syncSemParent = sem_open(&syncSemParentName,O_CREAT,0700,0);
                            // O_CREAT,
                             //0700, //(input) Permission flags. 
                            // 0);*/

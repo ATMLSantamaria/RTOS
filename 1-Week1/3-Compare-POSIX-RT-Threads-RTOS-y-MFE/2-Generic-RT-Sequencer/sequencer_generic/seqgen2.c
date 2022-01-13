@@ -448,25 +448,25 @@ void *Sequencer(void *threadp)
 	//
 	current_realtime = current_realtime + ((double)delay_time.tv_nsec / (double)NANOSEC_PER_SEC);
 
-        syslog(LOG_CRIT, "Sequencer on core %d for cycle %llu @ sec=%6.9lf\n", sched_getcpu(), seqCnt, current_realtime-start_realtime);
+        //syslog(LOG_CRIT, "Sequencer on core %d for cycle %llu @ sec=%6.9lf\n", sched_getcpu(), seqCnt, current_realtime-start_realtime);
 
 
         // Release each service at a sub-rate of the generic sequencer rate
 
         // Servcie_1 = RT_MAX-1	@ 50 Hz
-        //if((seqCnt % 2) == 0) sem_post(&semS1);
+        if((seqCnt % 2) == 0) sem_post(&semS1);
 
         // Service_2 = RT_MAX-2	@ 20 Hz
-        //if((seqCnt % 5) == 0) sem_post(&semS2);
+        if((seqCnt % 5) == 0) sem_post(&semS2);
 
         // Service_3 = RT_MAX-3	@ 10 Hz
-        //if((seqCnt % 10) == 0) sem_post(&semS3);
+        if((seqCnt % 10) == 0) sem_post(&semS3);
 
         // Service_4 = RT_MAX-4	@ 5 Hz
-        //if((seqCnt % 20) == 0) sem_post(&semS4);
+        if((seqCnt % 20) == 0) sem_post(&semS4);
 
         // Service_5 = RT_MAX-5	@ 2 Hz
-        //if((seqCnt % 50) == 0) sem_post(&semS5);
+        if((seqCnt % 50) == 0) sem_post(&semS5);
 
         // Service_6 = RT_MAX-6	@ 1 Hz
         if((seqCnt % 100) == 0) sem_post(&semS6);
