@@ -138,6 +138,7 @@ int main(int argc, char *argv[]) {
   // 5 - Now apply it
   if((rc = sched_setscheduler(getpid(),SCHED_FIFO,&mainThread_param) < 0)) {
     perror("********** WARNING: sched_setscheduler");
+    exit(-1);
   }
   printf("... setting policy finished\n");
   
@@ -174,7 +175,10 @@ int main(int argc, char *argv[]) {
   for (int i = 0; i < NUM_THREADS;++i) {
     pthread_join(myThreads[i],NULL);
   }
-
+  
+  printf("\nObserve that in each run each thread is running in random cores.\n");
+  printf("This is because Linux by default will do SMP, symetric multiprocessing.\n");
+  printf("If we dont set affinity Linux simply chooses the least busy core.\nWe can change this and decide in which core the thread should run.\nSwitching to AMP, asymetric multiprocessing.\n");
   printf("TEST COMPLETE\n");
 }
 
